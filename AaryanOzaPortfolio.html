@@ -1,0 +1,599 @@
+<html><head><base href="https://modernportfolio.example.com/"><style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #2d3436;
+    --accent-color: #00cec9;
+    --text-color: #2d3436;
+    --bg-color: #ffffff;
+    --section-bg: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2em 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    text-align: center;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.section {
+    padding: 100px 0;
+    background-color: var(--section-bg);
+}
+
+.section:nth-child(even) {
+    background-color: var(--bg-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.skills-grid, .certifications-grid, .find-me-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-item, .certification-item, .find-me-item {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover, .certification-item:hover, .find-me-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-icon, .certification-icon, .find-me-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#contact {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+}
+
+#contact .section-title {
+    color: white;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+    color: white;
+}
+
+#contact .btn {
+    background-color: white;
+    color: var(--primary-color);
+    align-self: center;
+    padding: 15px 40px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+#contact .btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#about {
+    background-color: var(--bg-color);
+    padding: 100px 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-direction: row;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+    order: -1;
+}
+
+.about-text {
+    flex: 1;
+    order: 1;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-text h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+#projects {
+    background-color: var(--section-bg);
+    padding: 100px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-item {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-content h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    margin-bottom: 15px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.project-tag {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style></head><body>
+    <header>
+        <div class="container">
+            <h1>Aaryan Oza</h1>
+            <p>Developer | Problem Solver | Tech Enthusiast</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#find-me">Find Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Innovative Solutions for Complex Challenges</h1>
+                <p>Transforming ideas into elegant, efficient, and user-friendly web solutions</p>
+                <a href="#contact" class="btn">Let's Create Something Amazing</a>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://source.unsplash.com/400x400/?portrait,professional" alt="Aaryan Oza smiling, wearing a blue shirt against a white background" width="400" height="400">
+                    </div>
+                    <div class="about-text">
+                        <p>Hello! I'm Aaryan Oza, a high school freshman passionate about coding, math, and business. I have advanced skills in machine learning, AI, and app development, with certifications in Vertex AI and Google LookerML, and a Gold Rank in the Google Cloud Skills Competition. Proficient in Python, HTML, CSS, and JavaScript, I've developed projects like HealthChat, a multilingual AI model for healthcare.</p>
+                        <p>I have earned top scores in prestigious math competitions including the NJ Math League, Continental Math Competition, and Texas Mathworks Exam. Additionally, I ranked in the top 10 globally in a financial trivia competition and have extensive public speaking experience.</p>
+                        <h4>Hobbies & Interests</h4>
+                        <p>I love exploring new tech, solving math challenges, and staying updated on financial trends. Playing chess sharpens my strategic thinking, and I enjoy teaching others through tutoring and workshops. Outdoor activities, sports, and community service provide a balanced and fulfilling lifestyle.</p>
+                        <a href="#contact" class="btn">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <img src="https://source.unsplash.com/300x200/?ai,healthcare" alt="HealthChat AI interface showing a conversation about medical symptoms" class="project-image" width="300" height="200">
+                        <div class="project-content">
+                            <h3>HealthChat AI</h3>
+                            <p>A multilingual AI chatbot for healthcare, providing medical information and preliminary diagnoses.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">NLP</span>
+                                <span class="project-tag">TensorFlow</span>
+                                <span class="project-tag">Flask</span>
+                            </div>
+                            <a href="https://modernportfolio.example.com/projects/healthchat" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="https://source.unsplash.com/300x200/?education,technology" alt="Learning Guru interface showing course recommendations based on user input" class="project-image" width="300" height="200">
+                        <div class="project-content">
+                            <h3>Learning Guru</h3>
+                            <p>An AI-powered platform that recommends online courses based on user's learning goals and preferences.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">ML</span>
+                                <span class="project-tag">MongoDB</span>
+                            </div>
+                            <a href="https://modernportfolio.example.com/projects/learning-guru" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="https://source.unsplash.com/300x200/?finance,chart" alt="Black Scholes Option Pricing Model interface with graphs and input fields" class="project-image" width="300" height="200">
+                        <div class="project-content">
+                            <h3>Black Scholes Option Pricing Model</h3>
+                            <p>An interactive web application for calculating option prices using the Black-Scholes model.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">D3.js</span>
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">Financial Modeling</span>
+                            </div>
+                            <a href="https://modernportfolio.example.com/projects/black-scholes" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="https://source.unsplash.com/300x200/?face,technology" alt="Face Recognition app interface showing detected faces with age predictions" class="project-image" width="300" height="200">
+                        <div class="project-content">
+                            <h3>Face Recognition & Age Prediction</h3>
+                            <p>A machine learning application that detects faces in images and predicts the age of individuals.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">OpenCV</span>
+                                <span class="project-tag">Deep Learning</span>
+                                <span class="project-tag">Keras</span>
+                            </div>
+                            <a href="https://modernportfolio.example.com/projects/face-recognition" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">🌐</div>
+                        <h3>Full Stack Development</h3>
+                        <p>Proficient in both front-end and back-end technologies, creating seamless web applications. Experienced with React, Node.js, Django, and various databases. For collaboration on tech projects, reach out at <a href="mailto:aaryanoza15@gmail.com">aaryanoza15@gmail.com</a>.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🧠</div>
+                        <h3>AI & Machine Learning</h3>
+                        <p>Experienced in implementing AI solutions and machine learning models using TensorFlow, PyTorch, scikit-learn, and Keras. Proficient in natural language processing (NLP) and computer vision tasks.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">📊</div>
+                        <h3>Data Analysis</h3>
+                        <p>Proficient in extracting insights from large datasets using Python (Pandas, NumPy), R, and SQL. Experienced with data visualization tools like Matplotlib, Seaborn, and Tableau.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">💼</div>
+                        <h3>Business Acumen</h3>
+                        <p>Strong understanding of business principles, financial markets, and entrepreneurship. Experienced in developing business strategies and analyzing market trends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications & Awards</h2>
+                <div class="certifications-grid">
+                    <div class="certification-item">
+                        <div class="certification-icon">🏆</div>
+                        <h3>Google Cloud Lab Gold Rank</h3>
+                        <p>Achieved Gold Rank in Google Cloud Skills Competition</p>
+                    </div>
+                    <div class="certification-item">
+                        <div class="certification-icon">🏅</div>
+                        <h3>Certified in Google Cloud ML Products</h3>
+                        <p>Certified in Vertex AI and Google LookerML</p>
+                    </div>
+                    <div class="certification-item">
+                        <div class="certification-icon">🎖️</div>
+                        <h3>INVRS Global Financial Trivia Competition</h3>
+                        <p>First place in global financial trivia competition</p>
+                    </div>
+                    <div class="certification-item">
+                        <div class="certification-icon">🏆</div>
+                        <h3>Science & Math Competitions</h3>
+                        <p>Qualified for National Science Bee and top places in several math competitions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="find-me" class="section">
+            <div class="container">
+                <h2 class="section-title">Find Me Online</h2>
+                <div class="find-me-grid">
+                    <div class="find-me-item">
+                        <div class="find-me-icon">👨‍💻</div>
+                        <h3>GitHub</h3>
+                        <p>Check out my latest projects and contributions</p>
+                        <a href="https://github.com/aaryanoza" class="btn" target="_blank">Visit Profile</a>
+                    </div>
+                    <div class="find-me-item">
+                        <div class="find-me-icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <p>Connect with me professionally and view my work history</p>
+                        <a href="https://linkedin.com/in/aaryanoza" class="btn" target="_blank">Connect</a>
+                    </div>
+                    <div class="find-me-item">
+                        <div class="find-me-icon">✍️</div>
+                        <h3>Medium</h3>
+                        <p>Read my articles on various tech topics and tutorials</p>
+                        <a href="https://medium.com/@aaryanoza" class="btn" target="_blank">Read Articles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-container">
+                    <form class="contact-form" action="https://modernportfolio.example.com/send-message" method="GET">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Aaryan Oza. Crafted with passion and code.</p>
+        </div>
+    </footer>
+</body></html>
